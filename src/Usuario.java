@@ -9,6 +9,8 @@ import java.io.File;
 import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 /**
  *
  * @author DELL
@@ -20,6 +22,14 @@ public class Usuario extends javax.swing.JFrame {
      */
     public Usuario() {
         initComponents();
+        txtLogin.setEditable(true);
+    txtPassword.setEditable(false);
+    txtNombre.setEditable(false);
+    txtApellido.setEditable(false);
+    txtEmail.setEditable(false);
+
+    btnGuardar.setEnabled(false);
+    btnBuscar.setEnabled(true);
     }
 
     /**
@@ -32,38 +42,69 @@ public class Usuario extends javax.swing.JFrame {
     private void initComponents() {
 
         grupoNivel = new javax.swing.ButtonGroup();
+        lblEstado = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnBuscar = new javax.swing.JButton();
+        txtLogin = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        btnGuardar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         rbAdmin = new javax.swing.JRadioButton();
         rbUsuario = new javax.swing.JRadioButton();
-        txtLogin = new javax.swing.JTextField();
-        lblEstado = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Login:");
 
         jLabel2.setText("Contraseña:");
 
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Nombres:");
+
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Apellidos:");
 
         jLabel5.setText("Email:");
 
         jLabel6.setText("Nivel:");
+
+        grupoNivel.add(rbAdmin);
+        rbAdmin.setText("Administrador");
+        rbAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAdminActionPerformed(evt);
+            }
+        });
+
+        grupoNivel.add(rbUsuario);
+        rbUsuario.setText("Usuario");
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,118 +127,110 @@ public class Usuario extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
-        grupoNivel.add(rbAdmin);
-        rbAdmin.setText("Administrador");
-        rbAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbAdminActionPerformed(evt);
-            }
-        });
-
-        grupoNivel.add(rbUsuario);
-        rbUsuario.setText("Usuario");
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(87, 87, 87)
+                        .addComponent(txtApellido))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(88, 88, 88)
+                        .addComponent(txtNombre))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(73, 73, 73)
+                        .addComponent(txtPassword))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(113, 113, 113)
+                        .addComponent(txtLogin))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(rbAdmin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                                .addComponent(rbUsuario)
+                                .addGap(33, 33, 33))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(txtEmail)))))
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscar)
+                .addGap(64, 64, 64))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(btnGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpiar)
+                .addGap(143, 143, 143))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(btnSalir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscar)
+                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(rbAdmin)
+                    .addComponent(rbUsuario))
+                .addGap(100, 100, 100)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnLimpiar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalir)
+                .addGap(132, 132, 132))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnGuardar)
-                        .addGap(91, 91, 91)
-                        .addComponent(btnLimpiar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir)
-                        .addGap(111, 111, 111))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(99, 99, 99)
-                                .addComponent(txtLogin))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(64, 64, 64)
-                                    .addComponent(rbAdmin)
-                                    .addGap(51, 51, 51)
-                                    .addComponent(rbUsuario))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(47, 47, 47))
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel2)
-                                                .addComponent(jLabel3))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                    .addGap(52, 52, 52)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                                        .addComponent(txtApellido)
-                                        .addComponent(txtEmail)
-                                        .addComponent(txtPassword)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)
-                        .addGap(36, 36, 36))))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(rbAdmin)
-                    .addComponent(rbUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnLimpiar)
-                    .addComponent(btnSalir))
-                .addGap(92, 92, 92)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
         );
@@ -205,73 +238,253 @@ public class Usuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // LIMPIAR CAMPOS
+        txtLogin.setText("");
+        txtPassword.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtEmail.setText("");
+
+        // DESELECCIONAR RADIO BUTTONS
+        grupoNivel.clearSelection();
+
+        // ESTADO INICIAL (MUY IMPORTANTE)
+        txtLogin.setEditable(true);
+        txtPassword.setEditable(false);
+        txtNombre.setEditable(false);
+        txtApellido.setEditable(false);
+        txtEmail.setEditable(false);
+
+        btnGuardar.setEnabled(false);
+        btnBuscar.setEnabled(true);
+
+        // FOCO EN LOGIN
+        txtLogin.requestFocus();
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+        String login = txtLogin.getText().trim();
+        String password = txtPassword.getText().trim();
+        String nombre = txtNombre.getText().trim();
+        String apellido = txtApellido.getText().trim();
+        String email = txtEmail.getText().trim();
+
+        if (login.isEmpty() || password.isEmpty() ||
+            nombre.isEmpty() || apellido.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                "Complete los campos obligatorios");
+            return;
+        }
+
+        if (!rbAdmin.isSelected() && !rbUsuario.isSelected()) {
+            JOptionPane.showMessageDialog(this,
+                "Seleccione el nivel del usuario");
+            return;
+        }
+
+        int nivel = rbAdmin.isSelected() ? 0 : 1;
+
+        File archivo = new File("C:/datos/usuarios.txt");
+
+        try {
+
+            // 🔁 MODIFICAR
+            if (!txtLogin.isEditable()) {
+
+                File temp = new File("C:/datos/temp.txt");
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
+
+                String linea;
+
+                while ((linea = br.readLine()) != null) {
+
+                    String[] datos = linea.split(";");
+
+                    if (datos[0].equals(login)) {
+
+                        String nuevaLinea = login + ";" + password + ";" + nivel +
+                        ";" + nombre + ";" + apellido;
+
+                        if (!email.isEmpty()) {
+                            nuevaLinea += ";" + email;
+                        }
+
+                        bw.write(nuevaLinea);
+                    } else {
+                        bw.write(linea);
+                    }
+                    bw.newLine();
+                }
+
+                br.close();
+                bw.close();
+
+                Files.move(
+                    temp.toPath(),
+                    archivo.toPath(),
+                    StandardCopyOption.REPLACE_EXISTING
+                );
+
+                JOptionPane.showMessageDialog(this,
+                    "Usuario modificado correctamente");
+
+            } else {
+                // 🆕 CREAR
+
+                BufferedWriter bw =
+                new BufferedWriter(new FileWriter(archivo, true));
+
+                String linea = login + ";" + password + ";" + nivel +
+                ";" + nombre + ";" + apellido;
+
+                if (!email.isEmpty()) {
+                    linea += ";" + email;
+                }
+
+                bw.write(linea);
+                bw.newLine();
+                bw.close();
+
+                JOptionPane.showMessageDialog(this,
+                    "Usuario guardado correctamente");
+            }
+
+            btnLimpiarActionPerformed(null);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                "ERROR REAL:\n" + e.getMessage());
+            e.printStackTrace(); // 👈 míralo en la consola
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void rbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbAdminActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       this.dispose(); // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirActionPerformed
-    
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-     limpiarCampos();
-     txtLogin.setText("");
-     txtPassword.setText("");
-     lblEstado.setText(" "); // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-    String login = txtLogin.getText();
-    String password = new String(txtPassword.getPassword());
-    String nombre = txtNombre.getText();
-    String apellido = txtApellido.getText();
-    String email = txtEmail.getText();
-
-    int nivel;
-    if (rbAdmin.isSelected()) {
-        nivel = 0;
-    } else 
-        if (rbUsuario.isSelected()) {
-        nivel = 1;
-    } else {
-        JOptionPane.showMessageDialog(this, "Seleccione Administrador o Usuario");
-        return;
-    }
-
-    if (login.isEmpty() || password.isEmpty() || nombre.isEmpty() || apellido.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Complete los campos obligatorios");
-        return;
-    }
-
-    try {
-        FileWriter fw = new FileWriter("C:/datos/usuarios.txt", true);
-        BufferedWriter bw = new BufferedWriter(fw);
-
-        bw.write(login + ";" + password + ";" + nivel + ";" + nombre + ";" + apellido + ";" + email);
-        bw.newLine();
-        bw.close();
-
-        JOptionPane.showMessageDialog(this, "Usuario guardado correctamente");
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error en intentar guardar usuario");
-    }
-    // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-     // TODO add your handling code here:
+        String loginBuscar = txtLogin.getText().trim();
+
+        if (loginBuscar.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el usuario a buscar");
+            txtLogin.requestFocus();
+            return;
+        }
+
+        File archivo = new File("C:/datos/usuarios.txt");
+
+        // SI EL ARCHIVO NO EXISTE → PERMITIR CREAR
+        if (!archivo.exists()) {
+            JOptionPane.showMessageDialog(this,
+                "No existen usuarios. Puede crear uno nuevo.");
+            habilitarParaCrear();
+            return;
+        }
+
+        boolean encontrado = false;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+
+                String[] datos = linea.split(";");
+
+                // DATOS QUE SIEMPRE EXISTEN
+                String login = datos[0];
+                String password = datos[1];
+                int nivel = Integer.parseInt(datos[2]);
+                String nombre = datos[3];
+                String apellido = datos[4];
+
+                // EMAIL PUEDE NO EXISTIR
+                String email = "";
+                if (datos.length > 5) {
+                    email = datos[5];
+                }
+
+                if (loginBuscar.equals(login)) {
+
+                    // CARGAR DATOS
+                    txtLogin.setText(login);
+                    txtPassword.setText(password);
+                    txtNombre.setText(nombre);
+                    txtApellido.setText(apellido);
+                    txtEmail.setText(email);
+
+                    if (nivel == 0) {
+                        rbAdmin.setSelected(true);
+                    } else {
+                        rbUsuario.setSelected(true);
+                    }
+
+                    // DESBLOQUEAR PARA EDITAR (ADMIN Y USUARIO)
+                    txtLogin.setEditable(false);
+                    txtPassword.setEditable(true);
+                    txtNombre.setEditable(true);
+                    txtApellido.setEditable(true);
+                    txtEmail.setEditable(true);
+
+                    btnGuardar.setEnabled(true);
+                    btnBuscar.setEnabled(false);
+
+                    JOptionPane.showMessageDialog(this, "Usuario encontrado");
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            br.close();
+
+            // SI NO SE ENCONTRO → PERMITIR CREAR
+            if (!encontrado) {
+                JOptionPane.showMessageDialog(this,
+                    "Usuario no existe. Puede crear uno nuevo.");
+                habilitarParaCrear();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                "Error al procesar el archivo");
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
-    private void limpiarCampos() {
+        private void limpiarCampos() {
     txtNombre.setText("");
     txtApellido.setText("");
     txtEmail.setText("");
     rbAdmin.setSelected(false);
     rbUsuario.setSelected(false);
+}
+    private void habilitarParaCrear() {
+
+    txtLogin.setEditable(true);
+    txtPassword.setEditable(true);
+    txtNombre.setEditable(true);
+    txtApellido.setEditable(true);
+    txtEmail.setEditable(true);
+
+    btnGuardar.setEnabled(true);
+    btnBuscar.setEnabled(false);
 }
     /**
      * @param args the command line arguments
@@ -320,6 +533,7 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JRadioButton rbAdmin;
     private javax.swing.JRadioButton rbUsuario;

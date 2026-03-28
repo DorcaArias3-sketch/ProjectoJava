@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import javax.swing.JOptionPane;
 /**
@@ -117,9 +118,52 @@ public class Login extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Digite usuario y contraseña");
         return;
     }
-     try {
-     
-    // TODO add your handling code here:
+
+    boolean encontrado = false;
+
+    try {
+        BufferedReader br = new BufferedReader(
+                new FileReader("C:/datos/usuarios.txt")
+        );
+
+        String linea;
+
+        while ((linea = br.readLine()) != null) {
+
+            String[] datos = linea.split(";");
+
+            String loginArchivo = datos[0];
+            String passArchivo = datos[1];
+            int nivel = Integer.parseInt(datos[2]);
+
+            if (login.equals(loginArchivo) && password.equals(passArchivo)) {
+
+                encontrado = true;
+
+                if (nivel == 0) {
+                    JOptionPane.showMessageDialog(this, "Bienvenido querido ADMINISTRADOR");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Bienvenido querido USUARIO");
+                }
+
+                Menu menu = new Menu();
+                menu.setVisible(true);
+                this.dispose();   // cierra el login
+
+                break;
+            }
+        }
+
+        br.close();
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al leer el archivo");
+    }
+ // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**

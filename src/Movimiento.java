@@ -8,12 +8,12 @@
  *
  * @author DELL
  */
-public class Mantenimiento extends javax.swing.JFrame {
+public class Movimiento extends javax.swing.JFrame {
 
     /**
-     * Creates new form Mantenimiento
+     * Creates new form Movimiento
      */
-    public Mantenimiento() {
+    public Movimiento() {
         initComponents();
     }
 
@@ -26,29 +26,15 @@ public class Mantenimiento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnUsuario = new javax.swing.JButton();
-        btnGamas = new javax.swing.JButton();
-        btnVehiculos = new javax.swing.JButton();
-        btnClientes = new javax.swing.JButton();
-        btnOfertas = new javax.swing.JButton();
+        btnResClientes = new javax.swing.JButton();
+        btnResVehiculos = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnUsuario.setText("Usuarios");
-        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuarioActionPerformed(evt);
-            }
-        });
+        btnResClientes.setText("Reservas Clientes");
 
-        btnGamas.setText("Gamas");
-
-        btnVehiculos.setText("Vehiculos");
-
-        btnClientes.setText("Clientes");
-
-        btnOfertas.setText("Ofertas");
+        btnResVehiculos.setText("Reservas de Vehiculos");
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -62,36 +48,24 @@ public class Mantenimiento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUsuario)
-                            .addComponent(btnGamas)
-                            .addComponent(btnVehiculos)
-                            .addComponent(btnClientes)
-                            .addComponent(btnOfertas)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(btnSalir)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalir)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnResClientes)
+                        .addComponent(btnResVehiculos)))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnUsuario)
-                .addGap(28, 28, 28)
-                .addComponent(btnGamas)
-                .addGap(29, 29, 29)
-                .addComponent(btnVehiculos)
-                .addGap(29, 29, 29)
-                .addComponent(btnClientes)
-                .addGap(39, 39, 39)
-                .addComponent(btnOfertas)
-                .addGap(54, 54, 54)
+                .addGap(72, 72, 72)
+                .addComponent(btnResClientes)
+                .addGap(41, 41, 41)
+                .addComponent(btnResVehiculos)
+                .addGap(49, 49, 49)
                 .addComponent(btnSalir)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,11 +74,6 @@ public class Mantenimiento extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        System.exit(0); // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-      Usuario u = new Usuario();
-      u.setVisible(true);  // TODO add your handling code here:
-    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,30 +92,27 @@ public class Mantenimiento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mantenimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mantenimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mantenimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mantenimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Movimiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mantenimiento().setVisible(true);
+                new Movimiento().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnGamas;
-    private javax.swing.JButton btnOfertas;
+    private javax.swing.JButton btnResClientes;
+    private javax.swing.JButton btnResVehiculos;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnUsuario;
-    private javax.swing.JButton btnVehiculos;
     // End of variables declaration//GEN-END:variables
 }

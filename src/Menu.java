@@ -48,6 +48,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnConsultas.setText("Consultas");
+        btnConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultasActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Salir");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -91,16 +96,23 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMantenimientoActionPerformed
-        // TODO add your handling code here:
+      Mantenimiento m = new Mantenimiento();
+       m.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_btnMantenimientoActionPerformed
 
     private void btnMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMovimientoActionPerformed
-        // TODO add your handling code here:
+       Movimiento mo = new Movimiento();
+       mo.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_btnMovimientoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        System.exit(0); // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
+      Consultas c = new Consultas();
+      c.setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultasActionPerformed
 
     /**
      * @param args the command line arguments
