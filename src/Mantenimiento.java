@@ -43,6 +43,11 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
 
         btnGamas.setText("Gamas");
+        btnGamas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGamasActionPerformed(evt);
+            }
+        });
 
         btnVehiculos.setText("Vehiculos");
 
@@ -105,6 +110,11 @@ public class Mantenimiento extends javax.swing.JFrame {
       Usuario u = new Usuario();
       u.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnGamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGamasActionPerformed
+     Gamas g = new Gamas();
+     g.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnGamasActionPerformed
 
     /**
      * @param args the command line arguments

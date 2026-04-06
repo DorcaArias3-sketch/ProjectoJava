@@ -13,10 +13,21 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    int nivelUsuario;
+    public Menu(int nivel) {
         initComponents();
+        this.nivelUsuario = nivel;
+
+        configurarPermisos();
     }
 
+    private void configurarPermisos() {
+
+    // SI ES USUARIO NORMAL
+    if (nivelUsuario == 1) {
+        btnMantenimiento.setEnabled(false);
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,7 +155,7 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+            new Menu(0).setVisible(true); // 0 = admin (solo para pruebas)
             }
         });
     }

@@ -135,14 +135,6 @@ public class Usuario extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(87, 87, 87)
-                        .addComponent(txtApellido))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(88, 88, 88)
-                        .addComponent(txtNombre))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(73, 73, 73)
                         .addComponent(txtPassword))
@@ -163,7 +155,15 @@ public class Usuario extends javax.swing.JFrame {
                                 .addGap(33, 33, 33))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(113, 113, 113)
-                                .addComponent(txtEmail)))))
+                                .addComponent(txtEmail))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtApellido)
+                            .addComponent(txtNombre))))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
                 .addGap(64, 64, 64))
@@ -243,17 +243,14 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        // LIMPIAR CAMPOS
         txtLogin.setText("");
         txtPassword.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
         txtEmail.setText("");
-
-        // DESELECCIONAR RADIO BUTTONS
+        
         grupoNivel.clearSelection();
 
-        // ESTADO INICIAL (MUY IMPORTANTE)
         txtLogin.setEditable(true);
         txtPassword.setEditable(false);
         txtNombre.setEditable(false);
@@ -263,9 +260,8 @@ public class Usuario extends javax.swing.JFrame {
         btnGuardar.setEnabled(false);
         btnBuscar.setEnabled(true);
 
-        // FOCO EN LOGIN
         txtLogin.requestFocus();
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -275,17 +271,15 @@ public class Usuario extends javax.swing.JFrame {
         String nombre = txtNombre.getText().trim();
         String apellido = txtApellido.getText().trim();
         String email = txtEmail.getText().trim();
-
+  
         if (login.isEmpty() || password.isEmpty() ||
             nombre.isEmpty() || apellido.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                "Complete los campos obligatorios");
+            JOptionPane.showMessageDialog(this, "Complete los campos obligatorios");
             return;
         }
 
         if (!rbAdmin.isSelected() && !rbUsuario.isSelected()) {
-            JOptionPane.showMessageDialog(this,
-                "Seleccione el nivel del usuario");
+            JOptionPane.showMessageDialog(this, "Seleccione el nivel del usuario");
             return;
         }
 
@@ -295,7 +289,6 @@ public class Usuario extends javax.swing.JFrame {
 
         try {
 
-            // 🔁 MODIFICAR
             if (!txtLogin.isEditable()) {
 
                 File temp = new File("C:/datos/temp.txt");
@@ -333,11 +326,10 @@ public class Usuario extends javax.swing.JFrame {
                     StandardCopyOption.REPLACE_EXISTING
                 );
 
-                JOptionPane.showMessageDialog(this,
-                    "Usuario modificado correctamente");
+                JOptionPane.showMessageDialog(this, "Usuario modificado correctamente");
 
             } else {
-                // 🆕 CREAR
+                
 
                 BufferedWriter bw =
                 new BufferedWriter(new FileWriter(archivo, true));
@@ -353,18 +345,16 @@ public class Usuario extends javax.swing.JFrame {
                 bw.newLine();
                 bw.close();
 
-                JOptionPane.showMessageDialog(this,
-                    "Usuario guardado correctamente");
+                JOptionPane.showMessageDialog(this,"Usuario guardado correctamente");
             }
 
             btnLimpiarActionPerformed(null);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                "ERROR REAL:\n" + e.getMessage());
-            e.printStackTrace(); // 👈 míralo en la consola
+            JOptionPane.showMessageDialog(this,"ERROR REAL:\n" + e.getMessage());
+            e.printStackTrace(); 
         }
-
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -391,10 +381,9 @@ public class Usuario extends javax.swing.JFrame {
 
         File archivo = new File("C:/datos/usuarios.txt");
 
-        // SI EL ARCHIVO NO EXISTE → PERMITIR CREAR
+        
         if (!archivo.exists()) {
-            JOptionPane.showMessageDialog(this,
-                "No existen usuarios. Puede crear uno nuevo.");
+            JOptionPane.showMessageDialog(this, "No existen usuarios. Puede crear uno nuevo.");
             habilitarParaCrear();
             return;
         }
@@ -409,14 +398,14 @@ public class Usuario extends javax.swing.JFrame {
 
                 String[] datos = linea.split(";");
 
-                // DATOS QUE SIEMPRE EXISTEN
+                
                 String login = datos[0];
                 String password = datos[1];
                 int nivel = Integer.parseInt(datos[2]);
                 String nombre = datos[3];
                 String apellido = datos[4];
 
-                // EMAIL PUEDE NO EXISTIR
+                
                 String email = "";
                 if (datos.length > 5) {
                     email = datos[5];
@@ -424,7 +413,6 @@ public class Usuario extends javax.swing.JFrame {
 
                 if (loginBuscar.equals(login)) {
 
-                    // CARGAR DATOS
                     txtLogin.setText(login);
                     txtPassword.setText(password);
                     txtNombre.setText(nombre);
@@ -437,7 +425,7 @@ public class Usuario extends javax.swing.JFrame {
                         rbUsuario.setSelected(true);
                     }
 
-                    // DESBLOQUEAR PARA EDITAR (ADMIN Y USUARIO)
+                    
                     txtLogin.setEditable(false);
                     txtPassword.setEditable(true);
                     txtNombre.setEditable(true);
@@ -455,20 +443,18 @@ public class Usuario extends javax.swing.JFrame {
 
             br.close();
 
-            // SI NO SE ENCONTRO → PERMITIR CREAR
+            
             if (!encontrado) {
-                JOptionPane.showMessageDialog(this,
-                    "Usuario no existe. Puede crear uno nuevo.");
+                JOptionPane.showMessageDialog(this, "Usuario no existe. Puede crear uno nuevo.");
                 habilitarParaCrear();
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                "Error al procesar el archivo");
+            JOptionPane.showMessageDialog(this, "Error al procesar el archivo");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
-        private void limpiarCampos() {
+    private void limpiarCampos() {
     txtNombre.setText("");
     txtApellido.setText("");
     txtEmail.setText("");

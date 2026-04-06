@@ -141,16 +141,16 @@ public class Login extends javax.swing.JFrame {
                 encontrado = true;
 
                 if (nivel == 0) {
-                    JOptionPane.showMessageDialog(this, "Bienvenido querido ADMINISTRADOR");
+                    JOptionPane.showMessageDialog(this, "Bienvenido querido Administrador");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Bienvenido querido USUARIO");
+                    JOptionPane.showMessageDialog(this, "Bienvenido querido Usuario");
                 }
 
-                Menu menu = new Menu();
+                Menu menu = new Menu(nivel);
                 menu.setVisible(true);
-                this.dispose();   // cierra el login
+                this.dispose(); 
 
-                break;
+    break;
             }
         }
 
