@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /**
  *
  * @author DELL
@@ -15,8 +21,19 @@ public class Gamas extends javax.swing.JFrame {
      */
     public Gamas() {
         initComponents();
+         estadoInicial();
     }
 
+    private void estadoInicial() {
+    txtIdGama.setEditable(true);
+    txtDescripcion.setText("");
+    txtPrecio.setText("");
+
+    btnBuscar.setEnabled(true);
+    btnGuardar.setEnabled(false);
+
+    txtIdGama.requestFocus();
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,22 +43,254 @@ public class Gamas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtIdGama = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        txtEstado = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("ID Gama");
+
+        jLabel2.setText("Descripcion");
+
+        jLabel3.setText("Precio");
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdGama)
+                            .addComponent(txtDescripcion)
+                            .addComponent(txtPrecio))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar)
+                        .addGap(13, 13, 13))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar)
+                        .addGap(59, 59, 59))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(btnSalir)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtIdGama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnLimpiar))
+                .addGap(32, 32, 32)
+                .addComponent(btnSalir)
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    if (txtDescripcion.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Descripción es obligatoria");
+        return;
+    }
+
+    if (txtPrecio.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Precio es obligatorio");
+        return;
+    }
+
+    try {
+        Double.parseDouble(txtPrecio.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Precio inválido");
+        return;
+    }
+
+    try {
+        File archivo = new File("C:/datos/gamas.txt");
+        archivo.getParentFile().mkdirs();
+
+        ArrayList<String> lista = new ArrayList<>();
+
+        if (archivo.exists()) {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                if (!linea.startsWith(txtIdGama.getText() + ";")) {
+                    lista.add(linea);
+                }
+            }
+            br.close();
+        }
+
+        String nuevaLinea = txtIdGama.getText() + ";" +
+                            txtDescripcion.getText() + ";" +
+                            txtPrecio.getText();
+
+        lista.add(nuevaLinea);
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
+        for (String l : lista) {
+            bw.write(l);
+            bw.newLine();
+        }
+        bw.close();
+
+        JOptionPane.showMessageDialog(this, "Gama guardada correctamente");
+
+        limpiarFormulario();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al guardar Gama");
+    }     
+    // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    if (txtIdGama.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Id Gama es obligatorio");
+        txtIdGama.requestFocus();
+        return;
+    }
+
+    boolean encontrado = false;
+
+    try {
+        File archivo = new File("C:/datos/gamas.txt");
+        archivo.getParentFile().mkdirs();
+
+        if (archivo.exists()) {
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                String datos[] = linea.split(";");
+
+                if (datos[0].equals(txtIdGama.getText())) {
+                    txtDescripcion.setText(datos[1]);
+                    txtPrecio.setText(datos[2]);
+                    encontrado = true;
+                    break;
+                }
+            }
+            br.close();
+        }
+
+        if (encontrado) {
+            txtEstado.setText("Modificando...");
+        } else {
+            txtEstado.setText("Creando...");
+            txtDescripcion.setText("");
+            txtPrecio.setText("");
+
+            JOptionPane.showMessageDialog(
+                this,
+                "La Gama no existe.\nPuede crear una nueva."
+            );
+        }
+
+        btnBuscar.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        txtIdGama.setEditable(false);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al buscar Gama");
+    }
+
+    // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+      limpiarFormulario();   // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+      this.dispose();  // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void limpiarFormulario() {
+
+    txtIdGama.setText("");
+    txtDescripcion.setText("");
+    txtPrecio.setText("");
+    txtEstado.setText("");
+
+    txtIdGama.setEditable(true);
+
+    btnBuscar.setEnabled(true);
+    btnGuardar.setEnabled(false);
+
+    txtIdGama.requestFocus();
+}
     /**
      * @param args the command line arguments
      */
@@ -78,5 +327,16 @@ public class Gamas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JLabel txtEstado;
+    private javax.swing.JTextField txtIdGama;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }
