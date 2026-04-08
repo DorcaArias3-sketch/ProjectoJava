@@ -20,20 +20,18 @@ public class Gamas extends javax.swing.JFrame {
      * Creates new form Gamas
      */
     public Gamas() {
-        initComponents();
-         estadoInicial();
+    initComponents();
+    txtDescripcion.setEditable(false);
+    txtPrecio.setEditable(false);
+
+    btnGuardar.setEnabled(false);
+    btnBuscar.setEnabled(true);
+
+    txtEstado.setText("");
+
     }
 
-    private void estadoInicial() {
-    txtIdGama.setEditable(true);
-    txtDescripcion.setText("");
-    txtPrecio.setText("");
-
-    btnBuscar.setEnabled(true);
-    btnGuardar.setEnabled(false);
-
-    txtIdGama.requestFocus();
-}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
