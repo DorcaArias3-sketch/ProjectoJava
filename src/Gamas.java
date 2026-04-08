@@ -283,10 +283,8 @@ public class Gamas extends javax.swing.JFrame {
     txtEstado.setText("");
 
     txtIdGama.setEditable(true);
-
     btnBuscar.setEnabled(true);
     btnGuardar.setEnabled(false);
-
     txtIdGama.requestFocus();
 }
     /**
