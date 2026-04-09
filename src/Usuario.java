@@ -285,13 +285,13 @@ public class Usuario extends javax.swing.JFrame {
 
         int nivel = rbAdmin.isSelected() ? 0 : 1;
 
-        File archivo = new File("C:/datos/usuarios.txt");
+        File archivo = new File("usuarios.txt");
 
         try {
 
             if (!txtLogin.isEditable()) {
 
-                File temp = new File("C:/datos/temp.txt");
+                File temp = new File("temp.txt");
                 BufferedReader br = new BufferedReader(new FileReader(archivo));
                 BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
 
@@ -379,7 +379,7 @@ public class Usuario extends javax.swing.JFrame {
             return;
         }
 
-        File archivo = new File("C:/datos/usuarios.txt");
+        File archivo = new File("usuarios.txt");
 
         
         if (!archivo.exists()) {

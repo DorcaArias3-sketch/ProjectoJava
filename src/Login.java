@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame {
 
     try {
         BufferedReader br = new BufferedReader(
-                new FileReader("C:/datos/usuarios.txt")
+                new FileReader("usuarios.txt")
         );
 
         String linea;

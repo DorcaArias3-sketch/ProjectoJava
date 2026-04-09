@@ -173,7 +173,7 @@ public class Gamas extends javax.swing.JFrame {
     }
 
     try {
-        File archivo = new File("C:/datos/gamas.txt");
+        File archivo = new File("datos/gamas.txt");
         archivo.getParentFile().mkdirs();
 
         ArrayList<String> lista = new ArrayList<>();
@@ -223,7 +223,7 @@ public class Gamas extends javax.swing.JFrame {
     boolean encontrado = false;
 
     try {
-        File archivo = new File("C:/datos/gamas.txt");
+        File archivo = new File("datos/gamas.txt");
         archivo.getParentFile().mkdirs();
 
         if (archivo.exists()) {
