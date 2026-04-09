@@ -30,6 +30,7 @@ public class Usuario extends javax.swing.JFrame {
 
     btnGuardar.setEnabled(false);
     btnBuscar.setEnabled(true);
+    txtEstado.setText("");
     }
 
     /**
@@ -61,6 +62,7 @@ public class Usuario extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        txtEstado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,42 +134,6 @@ public class Usuario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(73, 73, 73)
-                        .addComponent(txtPassword))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(113, 113, 113)
-                        .addComponent(txtLogin))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(rbAdmin)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                                .addComponent(rbUsuario)
-                                .addGap(33, 33, 33))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(txtEmail))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(87, 87, 87)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtApellido)
-                            .addComponent(txtNombre))))
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addGap(64, 64, 64))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(btnGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -177,11 +143,52 @@ public class Usuario extends javax.swing.JFrame {
                 .addGap(234, 234, 234)
                 .addComponent(btnSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(73, 73, 73)
+                                .addComponent(txtPassword))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(113, 113, 113)
+                                .addComponent(txtLogin))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGap(113, 113, 113)
+                                .addComponent(txtEmail))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(87, 87, 87)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtApellido)
+                                    .addComponent(txtNombre)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(rbAdmin)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                                .addComponent(rbUsuario)
+                                .addGap(33, 33, 33)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar)))
+                .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(35, 35, 35)
+                .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,11 +214,11 @@ public class Usuario extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(rbAdmin)
                     .addComponent(rbUsuario))
-                .addGap(100, 100, 100)
+                .addGap(80, 80, 80)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnLimpiar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnSalir)
                 .addGap(132, 132, 132))
         );
@@ -248,7 +255,7 @@ public class Usuario extends javax.swing.JFrame {
         txtNombre.setText("");
         txtApellido.setText("");
         txtEmail.setText("");
-        
+        txtEstado.setText("");
         grupoNivel.clearSelection();
 
         txtLogin.setEditable(true);
@@ -285,13 +292,13 @@ public class Usuario extends javax.swing.JFrame {
 
         int nivel = rbAdmin.isSelected() ? 0 : 1;
 
-        File archivo = new File("usuarios.txt");
+        File archivo = new File("datos/usuarios.txt");
 
         try {
 
             if (!txtLogin.isEditable()) {
 
-                File temp = new File("temp.txt");
+                File temp = new File("datos/temp.txt");
                 BufferedReader br = new BufferedReader(new FileReader(archivo));
                 BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
 
@@ -371,87 +378,86 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String loginBuscar = txtLogin.getText().trim();
+       String loginBuscar = txtLogin.getText().trim();
+       
+      if (loginBuscar.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Digite el usuario a buscar");
+    txtLogin.requestFocus();
+    return;
+}
 
-        if (loginBuscar.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite el usuario a buscar");
-            txtLogin.requestFocus();
-            return;
+   File archivo = new File("datos/usuarios.txt");   
+
+if (!archivo.exists()) {
+    txtEstado.setText("Creando...");
+    JOptionPane.showMessageDialog(this, "No existen usuarios. Puede crear uno nuevo.");
+    habilitarParaCrear();
+    return;
+}
+
+boolean encontrado = false;
+
+try {
+    BufferedReader br = new BufferedReader(new FileReader(archivo));
+    String linea;
+
+    while ((linea = br.readLine()) != null) {
+
+        String[] datos = linea.split(";");
+
+        String login = datos[0];
+        String password = datos[1];
+        int nivel = Integer.parseInt(datos[2]);
+        String nombre = datos[3];
+        String apellido = datos[4];
+
+        String email = "";
+        if (datos.length > 5) {
+            email = datos[5];
         }
 
-        File archivo = new File("usuarios.txt");
+        if (loginBuscar.equals(login)) {
 
-        
-        if (!archivo.exists()) {
-            JOptionPane.showMessageDialog(this, "No existen usuarios. Puede crear uno nuevo.");
-            habilitarParaCrear();
-            return;
-        }
+            txtLogin.setText(login);
+            txtPassword.setText(password);
+            txtNombre.setText(nombre);
+            txtApellido.setText(apellido);
+            txtEmail.setText(email);
 
-        boolean encontrado = false;
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(archivo));
-            String linea;
-
-            while ((linea = br.readLine()) != null) {
-
-                String[] datos = linea.split(";");
-
-                
-                String login = datos[0];
-                String password = datos[1];
-                int nivel = Integer.parseInt(datos[2]);
-                String nombre = datos[3];
-                String apellido = datos[4];
-
-                
-                String email = "";
-                if (datos.length > 5) {
-                    email = datos[5];
-                }
-
-                if (loginBuscar.equals(login)) {
-
-                    txtLogin.setText(login);
-                    txtPassword.setText(password);
-                    txtNombre.setText(nombre);
-                    txtApellido.setText(apellido);
-                    txtEmail.setText(email);
-
-                    if (nivel == 0) {
-                        rbAdmin.setSelected(true);
-                    } else {
-                        rbUsuario.setSelected(true);
-                    }
-
-                    
-                    txtLogin.setEditable(false);
-                    txtPassword.setEditable(true);
-                    txtNombre.setEditable(true);
-                    txtApellido.setEditable(true);
-                    txtEmail.setEditable(true);
-
-                    btnGuardar.setEnabled(true);
-                    btnBuscar.setEnabled(false);
-
-                    JOptionPane.showMessageDialog(this, "Usuario encontrado");
-                    encontrado = true;
-                    break;
-                }
+            if (nivel == 0) {
+                rbAdmin.setSelected(true);
+            } else {
+                rbUsuario.setSelected(true);
             }
 
-            br.close();
+            txtLogin.setEditable(false);
+            txtPassword.setEditable(true);
+            txtNombre.setEditable(true);
+            txtApellido.setEditable(true);
+            txtEmail.setEditable(true);
 
-            
-            if (!encontrado) {
-                JOptionPane.showMessageDialog(this, "Usuario no existe. Puede crear uno nuevo.");
-                habilitarParaCrear();
-            }
+            btnGuardar.setEnabled(true);
+            btnBuscar.setEnabled(false);
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al procesar el archivo");
+            txtEstado.setText("Modificando...");   
+
+            JOptionPane.showMessageDialog(this, "Usuario encontrado");
+            encontrado = true;
+            break;
         }
+    }
+
+    br.close();
+
+    if (!encontrado) {
+        txtEstado.setText("Creando...");   
+        JOptionPane.showMessageDialog(this, "Usuario no existe. Puede crear uno nuevo.");
+        habilitarParaCrear();
+    }
+
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al procesar el archivo");
+}
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
     private void limpiarCampos() {
@@ -525,6 +531,7 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbUsuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JLabel txtEstado;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPassword;

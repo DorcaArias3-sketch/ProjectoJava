@@ -250,9 +250,7 @@ public class Gamas extends javax.swing.JFrame {
             txtDescripcion.setText("");
             txtPrecio.setText("");
 
-            JOptionPane.showMessageDialog(
-                this,
-                "La Gama no existe.\nPuede crear una nueva."
+            JOptionPane.showMessageDialog(this, "La Gama no existe.\nPuede crear una nueva."
             );
         }
         btnBuscar.setEnabled(false);
