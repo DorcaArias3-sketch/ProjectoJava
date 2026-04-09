@@ -255,10 +255,11 @@ public class Gamas extends javax.swing.JFrame {
                 "La Gama no existe.\nPuede crear una nueva."
             );
         }
-
         btnBuscar.setEnabled(false);
         btnGuardar.setEnabled(true);
         txtIdGama.setEditable(false);
+        txtDescripcion.setEditable(true);
+        txtPrecio.setEditable(true);
 
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error al buscar Gama");
