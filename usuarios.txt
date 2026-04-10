@@ -1,3 +1,0 @@
-dorca;0023;0;Dorca;Arias;dorca@gmail.com
-psd;2145;1;Daniel;Nina;daniel@gmail.com
-Dorca;0023;0;Dorca;Arias;dorcaarias@gmail.com

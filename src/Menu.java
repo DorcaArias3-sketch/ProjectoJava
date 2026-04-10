@@ -82,25 +82,25 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnConsultas)
-                            .addComponent(btnMovimiento)
-                            .addComponent(btnMantenimiento)))
+                            .addComponent(btnMantenimiento)
+                            .addComponent(btnMovimiento)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addGap(150, 150, 150)
                         .addComponent(jButton4)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(53, 53, 53)
                 .addComponent(btnMantenimiento)
-                .addGap(35, 35, 35)
+                .addGap(30, 30, 30)
                 .addComponent(btnMovimiento)
                 .addGap(31, 31, 31)
                 .addComponent(btnConsultas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(jButton4)
-                .addGap(30, 30, 30))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();

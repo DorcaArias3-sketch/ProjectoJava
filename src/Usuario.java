@@ -273,96 +273,106 @@ public class Usuario extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        String login = txtLogin.getText().trim();
-        String password = txtPassword.getText().trim();
-        String nombre = txtNombre.getText().trim();
-        String apellido = txtApellido.getText().trim();
-        String email = txtEmail.getText().trim();
-  
-        if (login.isEmpty() || password.isEmpty() ||
-            nombre.isEmpty() || apellido.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Complete los campos obligatorios");
+    String login = txtLogin.getText().trim();
+    String password = txtPassword.getText().trim();
+    String nombre = txtNombre.getText().trim();
+    String apellido = txtApellido.getText().trim();
+    String email = txtEmail.getText().trim();
+
+    if (login.isEmpty() || password.isEmpty() ||
+        nombre.isEmpty() || apellido.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Complete los campos obligatorios");
+        return;
+    }
+
+    if (!rbAdmin.isSelected() && !rbUsuario.isSelected()) {
+        JOptionPane.showMessageDialog(this, "Seleccione el nivel del usuario");
+        return;
+    }
+
+   
+    if (!email.isEmpty()) {
+        if (!email.matches("^[A-Za-z0-9+_.-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$")) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Correo electrónico inválido.\nEjemplo: usuario@gmail.com"
+            );
+            txtEmail.requestFocus();
             return;
         }
+    }
 
-        if (!rbAdmin.isSelected() && !rbUsuario.isSelected()) {
-            JOptionPane.showMessageDialog(this, "Seleccione el nivel del usuario");
-            return;
-        }
+    int nivel = rbAdmin.isSelected() ? 0 : 1;
 
-        int nivel = rbAdmin.isSelected() ? 0 : 1;
+    File archivo = new File("datos/usuarios.txt");
 
-        File archivo = new File("datos/usuarios.txt");
+    try {
 
-        try {
+        if (!txtLogin.isEditable()) {
 
-            if (!txtLogin.isEditable()) {
+            File temp = new File("datos/temp.txt");
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
 
-                File temp = new File("datos/temp.txt");
-                BufferedReader br = new BufferedReader(new FileReader(archivo));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(temp));
+            String linea;
 
-                String linea;
+            while ((linea = br.readLine()) != null) {
 
-                while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
 
-                    String[] datos = linea.split(";");
+                if (datos[0].equals(login)) {
 
-                    if (datos[0].equals(login)) {
+                    String nuevaLinea = login + ";" + password + ";" + nivel +
+                    ";" + nombre + ";" + apellido;
 
-                        String nuevaLinea = login + ";" + password + ";" + nivel +
-                        ";" + nombre + ";" + apellido;
-
-                        if (!email.isEmpty()) {
-                            nuevaLinea += ";" + email;
-                        }
-
-                        bw.write(nuevaLinea);
-                    } else {
-                        bw.write(linea);
+                    if (!email.isEmpty()) {
+                        nuevaLinea += ";" + email;
                     }
-                    bw.newLine();
+
+                    bw.write(nuevaLinea);
+                } else {
+                    bw.write(linea);
                 }
-
-                br.close();
-                bw.close();
-
-                Files.move(
-                    temp.toPath(),
-                    archivo.toPath(),
-                    StandardCopyOption.REPLACE_EXISTING
-                );
-
-                JOptionPane.showMessageDialog(this, "Usuario modificado correctamente");
-
-            } else {
-                
-
-                BufferedWriter bw =
-                new BufferedWriter(new FileWriter(archivo, true));
-
-                String linea = login + ";" + password + ";" + nivel +
-                ";" + nombre + ";" + apellido;
-
-                if (!email.isEmpty()) {
-                    linea += ";" + email;
-                }
-
-                bw.write(linea);
                 bw.newLine();
-                bw.close();
-
-                JOptionPane.showMessageDialog(this,"Usuario guardado correctamente");
             }
 
-            btnLimpiarActionPerformed(null);
+            br.close();
+            bw.close();
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"ERROR REAL:\n" + e.getMessage());
-            e.printStackTrace(); 
+            Files.move(
+                temp.toPath(),
+                archivo.toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            );
+
+            JOptionPane.showMessageDialog(this, "Usuario modificado correctamente");
+
+        } else {
+
+            BufferedWriter bw =
+            new BufferedWriter(new FileWriter(archivo, true));
+
+            String linea = login + ";" + password + ";" + nivel +
+            ";" + nombre + ";" + apellido;
+
+            if (!email.isEmpty()) {
+                linea += ";" + email;
+            }
+
+            bw.write(linea);
+            bw.newLine();
+            bw.close();
+
+            JOptionPane.showMessageDialog(this,"Usuario guardado correctamente");
         }
-        
-        // TODO add your handling code here:
+
+        btnLimpiarActionPerformed(null);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this,"ERROR REAL:\n" + e.getMessage());
+        e.printStackTrace(); 
+    }
+   // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void rbAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdminActionPerformed
@@ -441,7 +451,7 @@ try {
 
             txtEstado.setText("Modificando...");   
 
-            JOptionPane.showMessageDialog(this, "Usuario encontrado");
+            JOptionPane.showMessageDialog(this, "Usuario encontrado. Puede modificarlo");
             encontrado = true;
             break;
         }

@@ -9,7 +9,7 @@
  * @author DELL
  */
 public class Mantenimiento extends javax.swing.JFrame {
-
+  
     /**
      * Creates new form Mantenimiento
      */
@@ -32,6 +32,7 @@ public class Mantenimiento extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         btnOfertas = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +63,13 @@ public class Mantenimiento extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,9 +85,11 @@ public class Mantenimiento extends javax.swing.JFrame {
                             .addComponent(btnClientes)
                             .addComponent(btnOfertas)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(btnSalir)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                        .addGap(60, 60, 60)
+                        .addComponent(btnSalir)
+                        .addGap(113, 113, 113)
+                        .addComponent(btnVolver)))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +105,9 @@ public class Mantenimiento extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(btnOfertas)
                 .addGap(54, 54, 54)
-                .addComponent(btnSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalir)
+                    .addComponent(btnVolver))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -115,6 +127,11 @@ public class Mantenimiento extends javax.swing.JFrame {
      Gamas g = new Gamas();
      g.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnGamasActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+    this.dispose();
+     // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,5 +175,6 @@ public class Mantenimiento extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JButton btnVehiculos;
+    private javax.swing.JButton btnVolver;
     // End of variables declaration//GEN-END:variables
 }
