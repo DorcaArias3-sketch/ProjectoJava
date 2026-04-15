@@ -90,16 +90,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vehiculos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVehiculosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnClientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clientes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnOfertas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ofertas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOfertasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>

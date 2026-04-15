@@ -9,7 +9,9 @@
  * @author DELL
  */
 public class Menu extends javax.swing.JFrame {
-
+MantenimientoVehiculos vehiculo =  new MantenimientoVehiculos();
+MantenimientoClientes cliente = new MantenimientoClientes();
+MantenimientoOferta oferta  = new MantenimientoOferta();
     /**
      * Creates new form Menu
      */

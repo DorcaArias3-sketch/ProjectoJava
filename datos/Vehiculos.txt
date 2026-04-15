@@ -1,0 +1,2 @@
+B12125689|Honda|CRV|Normal|Gasolina|2323|Negro|false|true|true|true|true|SUV Comodo
+B12014526|Ferrari|Enzo|Turístico|Gasolina|2323|Rojo|false|true|true|true|true|Deportivo Clasico

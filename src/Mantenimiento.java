@@ -51,10 +51,25 @@ public class Mantenimiento extends javax.swing.JFrame {
         });
 
         btnVehiculos.setText("Vehiculos");
+        btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVehiculosActionPerformed(evt);
+            }
+        });
 
         btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         btnOfertas.setText("Ofertas");
+        btnOfertas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOfertasActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +147,22 @@ public class Mantenimiento extends javax.swing.JFrame {
     this.dispose();
      // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
+        MantenimientoVehiculos vehiculo = new MantenimientoVehiculos();
+        vehiculo.setVisible(true);
+       
+    }//GEN-LAST:event_btnVehiculosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        MantenimientoClientes cliente = new MantenimientoClientes();
+        cliente.setVisible(true);
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void btnOfertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOfertasActionPerformed
+        MantenimientoOferta oferta = new MantenimientoOferta();
+        oferta.setVisible(true);
+    }//GEN-LAST:event_btnOfertasActionPerformed
 
     /**
      * @param args the command line arguments
