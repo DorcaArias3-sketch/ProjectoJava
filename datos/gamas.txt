@@ -1,1 +1,1 @@
-2323;Lujo;4000
+2323;Vehiculo de gama baja;15000
