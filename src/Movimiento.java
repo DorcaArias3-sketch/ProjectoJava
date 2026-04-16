@@ -33,6 +33,11 @@ public class Movimiento extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnResClientes.setText("Reservas Clientes");
+        btnResClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResClientesActionPerformed(evt);
+            }
+        });
 
         btnResVehiculos.setText("Reservas de Vehiculos");
 
@@ -74,6 +79,11 @@ public class Movimiento extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        System.exit(0); // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnResClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResClientesActionPerformed
+        ReservasClientes reserva = new ReservasClientes();
+        reserva.setVisible(true);
+    }//GEN-LAST:event_btnResClientesActionPerformed
 
     /**
      * @param args the command line arguments

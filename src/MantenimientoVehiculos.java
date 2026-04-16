@@ -103,7 +103,7 @@ public class MantenimientoVehiculos extends javax.swing.JFrame {
                 }
             }
         } catch (IOException e) {
-            // Si no existe el archivo, simplemente no encuentra nada
+            
         }
 
         if (encontrado) {
@@ -462,6 +462,11 @@ controlarBotones(true, false, false);
         jPanel1.add(Veh_disponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         Veh_nodisponible.setText("No disponible");
+        Veh_nodisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Veh_nodisponibleActionPerformed(evt);
+            }
+        });
         jPanel1.add(Veh_nodisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
 
         Techo_Electrico.setText("Techo electrico");
@@ -555,6 +560,10 @@ controlarBotones(true, false, false);
     private void BtnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtrasActionPerformed
         this.dispose();
     }//GEN-LAST:event_BtnAtrasActionPerformed
+
+    private void Veh_nodisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Veh_nodisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Veh_nodisponibleActionPerformed
 
     /**
      * @param args the command line arguments
