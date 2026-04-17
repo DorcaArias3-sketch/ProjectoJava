@@ -63,6 +63,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Reservas de Vehiculos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResVehiculosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>

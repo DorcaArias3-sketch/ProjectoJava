@@ -89,6 +89,11 @@ public class ReservaVehiculo extends javax.swing.JFrame {
         });
 
         btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -312,14 +317,14 @@ public class ReservaVehiculo extends javax.swing.JFrame {
             String linea;
 
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(";");
+                String[] datos = linea.split("\\|");
 
                 if (datos[0].equals(txtRecepcion.getText())) {
 
                     String nuevaLinea =
-                        txtRecepcion.getText() + ";" +
-                        txtMatricula.getText() + ";" +
-                        fechaTexto + ";" +
+                        txtRecepcion.getText() + "|" +
+                        txtMatricula.getText() + "|" +
+                        fechaTexto + "|" +
                         observacion;
 
                     lista.add(nuevaLinea);
@@ -333,9 +338,9 @@ public class ReservaVehiculo extends javax.swing.JFrame {
 
         if (!actualizado) {
             String nuevaLinea =
-                txtRecepcion.getText() + ";" +
-                txtMatricula.getText() + ";" +
-                fechaTexto + ";" +
+                txtRecepcion.getText() + "|" +
+                txtMatricula.getText() + "|" +
+                fechaTexto + "|" +
                 observacion;
 
             lista.add(nuevaLinea);
@@ -361,6 +366,10 @@ public class ReservaVehiculo extends javax.swing.JFrame {
 
   // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+      this.dispose();  // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverActionPerformed
 private void limpiarFormulario() {
 
     txtRecepcion.setText("");

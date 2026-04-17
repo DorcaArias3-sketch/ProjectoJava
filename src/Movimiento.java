@@ -40,6 +40,11 @@ public class Movimiento extends javax.swing.JFrame {
         });
 
         btnResVehiculos.setText("Reservas de Vehiculos");
+        btnResVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResVehiculosActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +86,17 @@ public class Movimiento extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnResClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResClientesActionPerformed
-        // TODO add your handling code here:
+
+        ReservasClientes reserva = new ReservasClientes();
+        reserva.setVisible(true);
+
     }//GEN-LAST:event_btnResClientesActionPerformed
+
+    private void btnResVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResVehiculosActionPerformed
+      ReservaVehiculo rv = new ReservaVehiculo();
+      rv.setVisible(true);
+     // TODO add your handling code here:
+    }//GEN-LAST:event_btnResVehiculosActionPerformed
 
     /**
      * @param args the command line arguments
