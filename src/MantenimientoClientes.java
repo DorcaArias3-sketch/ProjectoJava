@@ -21,7 +21,7 @@ public class MantenimientoClientes extends javax.swing.JFrame {
         @Override
         public void keyPressed(java.awt.event.KeyEvent evt) {
             if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER && BtnGuardar.isEnabled()) {
-                BtnGuardar.doClick(); // simula click real
+                BtnGuardar.doClick(); 
             }
         }
     };
@@ -39,7 +39,7 @@ public class MantenimientoClientes extends javax.swing.JFrame {
             if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
 
                 if (BtnBuscar.isEnabled()) {
-                    BtnBuscar.doClick(); //
+                    BtnBuscar.doClick();
                 } else if (BtnGuardar.isEnabled()) {
                     BtnGuardar.doClick(); 
                 }
@@ -222,36 +222,21 @@ private boolean validarCampos() {
 private boolean validarCedulaDominicana(String cedula) {
     String limpia = cedula.replace("-", "").trim();
 
-    // Debe tener exactamente 11 dígitos
     if (!limpia.matches("\\d{11}")) {
         return false;
     }
 
-    // Validación básica de cédula dominicana (algoritmo módulo 10)
-    int[] multiplicadores = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
-    int suma = 0;
-
-    for (int i = 0; i < 10; i++) {
-        int digito = Character.getNumericValue(limpia.charAt(i));
-        int resultado = digito * multiplicadores[i];
-
-        if (resultado > 9) {
-            resultado = (resultado / 10) + (resultado % 10);
-        }
-
-        suma += resultado;
+    if (limpia.equals("00000000000")) {
+        return false;
     }
 
-    int digitoVerificadorCalculado = (10 - (suma % 10)) % 10;
-    int digitoVerificadorReal = Character.getNumericValue(limpia.charAt(10));
-
-    return digitoVerificadorCalculado == digitoVerificadorReal;
+    return true;
 }
 
 private boolean validarTelefonoDominicano(String telefono) {
     String limpio = telefono.replace("-", "").trim();
 
-    // Debe tener 10 dígitos y empezar con prefijos comunes RD
+    
     if (!limpio.matches("\\d{10}")) {
         return false;
     }
@@ -294,7 +279,7 @@ private boolean validarEmail(String email) {
                 }
             }
         } catch (IOException e) {
-            // Si no existe el archivo todavía, se tomará como creando
+           
         }
 
         if (!encontrado) {

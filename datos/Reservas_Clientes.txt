@@ -1,4 +1,3 @@
-B12125689|40234499339|1489|16/04/2026|17/04/2026|20/04/2026|El unico detalle del vehiculo es un rasguño en la parte de atras|3|10200.0
-B12125689|40234499339|1489|16/04/2026|17/04/2026|20/04/2026|El unico detalle del vehiculo es un rasguño en la parte de atras|3|10200.0
-B12125689|40234499339|1489|16/04/2026|17/04/2026|20/04/2026|El unico detalle del vehiculo es un rasguño en la parte de atras|3|10200.0
-B12125689|40234499339|1489|16/04/2026|17/04/2026|20/04/2026|El unico detalle del vehiculo es un rasguño en la parte de atras|3|10200.0
+A123|B12125689|40234499339|1489|16/04/2026|17/04/2026|20/04/2026|El unico detalle del vehiculo es un rasguño en la parte de atras|3|10200.0
+
+B124|B12014526|40235566998|4568|19/04/2026|20/04/2026|25/04/2026||5|63750.0
