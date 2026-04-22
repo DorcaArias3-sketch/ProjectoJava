@@ -34,6 +34,8 @@ public class Consultas extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         btnVehiculos = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
+        btnReservas = new javax.swing.JButton();
+        btnRecepcion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +71,22 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
+        btnReservas.setBackground(new java.awt.Color(102, 204, 255));
+        btnReservas.setText("Reservas");
+        btnReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservasActionPerformed(evt);
+            }
+        });
+
+        btnRecepcion.setBackground(new java.awt.Color(102, 204, 255));
+        btnRecepcion.setText("Recepcion");
+        btnRecepcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecepcionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,21 +98,35 @@ public class Consultas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnClientes)
-                    .addComponent(btnVehiculos)
-                    .addComponent(jButton6))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnClientes)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVehiculos)
+                            .addComponent(jButton6))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnReservas)
+                            .addComponent(btnRecepcion))
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(btnClientes)
-                .addGap(39, 39, 39)
+                .addGap(1, 1, 1)
+                .addComponent(btnReservas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVehiculos)
-                .addGap(31, 31, 31)
+                .addGap(10, 10, 10)
+                .addComponent(btnRecepcion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
-                .addGap(63, 63, 63)
+                .addGap(55, 55, 55)
                 .addComponent(jButton15)
                 .addGap(28, 28, 28))
         );
@@ -117,6 +149,14 @@ public class Consultas extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         new Oferta().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
+        new ConReservas().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnRecepcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecepcionActionPerformed
+      new Recepcion().setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_btnRecepcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +195,8 @@ public class Consultas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnRecepcion;
+    private javax.swing.JButton btnReservas;
     private javax.swing.JButton btnVehiculos;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton6;

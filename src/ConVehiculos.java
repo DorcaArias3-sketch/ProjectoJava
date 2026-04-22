@@ -33,11 +33,11 @@ public class ConVehiculos extends javax.swing.JFrame {
         btnVehiculos = new javax.swing.JButton();
         btnVehiculoMatriculas = new javax.swing.JButton();
         btnVehiculosDisponibles = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        VehiculoMarca = new javax.swing.JButton();
+        VehiculosGama = new javax.swing.JButton();
         btnVehiculosRentados = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        VehiculoPrecio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,19 +65,19 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(102, 204, 255));
-        jButton4.setText("Vehiculos por Marca");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        VehiculoMarca.setBackground(new java.awt.Color(102, 204, 255));
+        VehiculoMarca.setText("Vehiculos por Marca");
+        VehiculoMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                VehiculoMarcaActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(102, 204, 255));
-        jButton5.setText("Vehiculos por Gama ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        VehiculosGama.setBackground(new java.awt.Color(102, 204, 255));
+        VehiculosGama.setText("Vehiculos por Gama ");
+        VehiculosGama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                VehiculosGamaActionPerformed(evt);
             }
         });
 
@@ -97,10 +97,11 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Vehiculos por Precio");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        VehiculoPrecio.setBackground(new java.awt.Color(102, 204, 255));
+        VehiculoPrecio.setText("Vehiculos Por Precio");
+        VehiculoPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                VehiculoPrecioActionPerformed(evt);
             }
         });
 
@@ -108,60 +109,55 @@ public class ConVehiculos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnVehiculos)
-                                        .addComponent(btnVehiculoMatriculas))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton4)
-                                        .addComponent(btnVehiculosRentados))
-                                    .addGap(77, 77, 77))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnVehiculosDisponibles)
-                                    .addGap(162, 162, 162)
-                                    .addComponent(jButton5)
-                                    .addGap(72, 72, 72)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnVolver)
-                                .addGap(16, 16, 16))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(btnVehiculosRentados)
+                    .addComponent(btnVehiculoMatriculas)
+                    .addComponent(btnVehiculosDisponibles))
+                .addGap(114, 114, 114)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(VehiculosGama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VehiculoMarca)
+                    .addComponent(VehiculoPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(btnVolver)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(205, 205, 205)
+                .addComponent(btnVehiculos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
+                .addComponent(btnVehiculos)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVehiculos)
-                    .addComponent(btnVehiculosRentados))
-                .addGap(26, 26, 26)
+                    .addComponent(VehiculoMarca)
+                    .addComponent(btnVehiculoMatriculas))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVehiculoMatriculas)
-                    .addComponent(jButton4))
-                .addGap(31, 31, 31)
+                    .addComponent(VehiculosGama)
+                    .addComponent(btnVehiculosDisponibles))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVehiculosDisponibles)
-                    .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(btnVehiculosRentados)
+                    .addComponent(VehiculoPrecio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(btnVolver)
-                .addGap(54, 54, 54))
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void VehiculosGamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehiculosGamaActionPerformed
         new VehiculosGama().setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_VehiculosGamaActionPerformed
 
     private void btnVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVehiculosActionPerformed
       new Vehiculos().setVisible(true); // TODO add your handling code here:
@@ -183,13 +179,13 @@ public class ConVehiculos extends javax.swing.JFrame {
       this.dispose();  // TODO add your handling code here:
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-   new VehiculosMarca().setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void VehiculoMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehiculoMarcaActionPerformed
+       new VehiculosMarca().setVisible(true);
+    }//GEN-LAST:event_VehiculoMarcaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new VehiculosPrecio().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void VehiculoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VehiculoPrecioActionPerformed
+       new VehiculosPrecio().setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_VehiculoPrecioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,13 +223,13 @@ public class ConVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton VehiculoMarca;
+    private javax.swing.JButton VehiculoPrecio;
+    private javax.swing.JButton VehiculosGama;
     private javax.swing.JButton btnVehiculoMatriculas;
     private javax.swing.JButton btnVehiculos;
     private javax.swing.JButton btnVehiculosDisponibles;
     private javax.swing.JButton btnVehiculosRentados;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }
