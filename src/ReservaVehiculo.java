@@ -55,7 +55,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        txtFecha = new com.toedter.calendar.JDateChooser();
+        txtFecha = new org.netbeans.modules.form.InvalidComponent();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -433,7 +433,7 @@ private void limpiarFormulario() {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEstado;
-    private com.toedter.calendar.JDateChooser txtFecha;
+    private org.netbeans.modules.form.InvalidComponent txtFecha;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtObservacion;
     private javax.swing.JTextField txtRecepcion;

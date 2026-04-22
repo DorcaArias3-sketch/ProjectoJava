@@ -171,7 +171,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="txtFecha">
+    <Component class="org.netbeans.modules.form.InvalidComponent" name="txtFecha">
     </Component>
   </SubComponents>
 </Form>
