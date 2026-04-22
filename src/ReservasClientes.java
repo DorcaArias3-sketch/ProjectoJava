@@ -779,6 +779,7 @@ if (datos.length >= 2 && datos[1].trim().equalsIgnoreCase(matricula)) {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -854,6 +855,7 @@ if (datos.length >= 2 && datos[1].trim().equalsIgnoreCase(matricula)) {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 400, 50));
 
+        BtnAtras.setBackground(new java.awt.Color(255, 102, 102));
         BtnAtras.setText("Atras");
         BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -862,6 +864,7 @@ if (datos.length >= 2 && datos[1].trim().equalsIgnoreCase(matricula)) {
         });
         jPanel1.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
+        BtnBorrarReserva.setBackground(new java.awt.Color(255, 51, 51));
         BtnBorrarReserva.setText("Borrar Reserva");
         BtnBorrarReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -870,6 +873,7 @@ if (datos.length >= 2 && datos[1].trim().equalsIgnoreCase(matricula)) {
         });
         jPanel1.add(BtnBorrarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
 
+        BtnGuardar.setBackground(new java.awt.Color(255, 255, 153));
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -891,6 +895,7 @@ if (datos.length >= 2 && datos[1].trim().equalsIgnoreCase(matricula)) {
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
         jPanel1.add(Id_Reserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 120, -1));
 
+        BtnBuscar.setBackground(new java.awt.Color(102, 204, 255));
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
