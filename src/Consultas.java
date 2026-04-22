@@ -47,6 +47,11 @@ public class Consultas extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(102, 204, 255));
         jButton6.setText("Ofertas ");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         btnVehiculos.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculos.setText("Vehiculos");
@@ -108,6 +113,10 @@ public class Consultas extends javax.swing.JFrame {
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
       this.dispose();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        new Oferta().setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
