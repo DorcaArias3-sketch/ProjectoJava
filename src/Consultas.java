@@ -1,3 +1,6 @@
+
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,7 @@ public class Consultas extends javax.swing.JFrame {
      */
     public Consultas() {
         initComponents();
+         getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -33,6 +37,7 @@ public class Consultas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnClientes.setBackground(new java.awt.Color(102, 204, 255));
         btnClientes.setText("Clientes ");
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,8 +45,10 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setBackground(new java.awt.Color(102, 204, 255));
         jButton6.setText("Ofertas ");
 
+        btnVehiculos.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculos.setText("Vehiculos");
         btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +56,7 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
+        jButton15.setBackground(new java.awt.Color(255, 102, 102));
         jButton15.setText("Volver");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,31 +69,27 @@ public class Consultas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVehiculos)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnClientes)
-                            .addComponent(jButton6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jButton15)))
+                .addGap(120, 120, 120)
+                .addComponent(jButton15)
                 .addContainerGap(146, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnClientes)
+                    .addComponent(btnVehiculos)
+                    .addComponent(jButton6))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(btnClientes)
-                .addGap(41, 41, 41)
+                .addGap(39, 39, 39)
                 .addComponent(btnVehiculos)
-                .addGap(50, 50, 50)
+                .addGap(31, 31, 31)
                 .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGap(63, 63, 63)
                 .addComponent(jButton15)
                 .addGap(28, 28, 28))
         );

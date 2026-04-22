@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.awt.Color;
 
 /**
  *
@@ -24,6 +25,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
      */
     public ReservaVehiculo() {
         initComponents();
+    getContentPane().setBackground(Color.WHITE);
     txtMatricula.setEditable(false);
     txtFecha.setEnabled(false);
     txtObservacion.setEditable(false);
@@ -58,6 +60,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
         txtFecha = new org.netbeans.modules.form.InvalidComponent();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("ID Resepcion: ");
 
@@ -67,6 +70,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
 
         jLabel4.setText("Observacion:");
 
+        btnBuscar.setBackground(new java.awt.Color(102, 204, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +78,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
             }
         });
 
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 153));
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +86,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
             }
         });
 
+        btnLimpiar.setBackground(new java.awt.Color(204, 255, 153));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +94,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(255, 102, 102));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +170,7 @@ public class ReservaVehiculo extends javax.swing.JFrame {
                     .addComponent(btnGuardar)
                     .addComponent(btnLimpiar)
                     .addComponent(btnVolver))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();

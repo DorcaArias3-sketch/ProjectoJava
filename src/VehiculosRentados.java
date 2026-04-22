@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ public class VehiculosRentados extends javax.swing.JFrame {
      */
     public VehiculosRentados() {
         initComponents();
+         getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -50,6 +52,7 @@ public class VehiculosRentados extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jScrollPane2);
 
+        btnBuscar.setBackground(new java.awt.Color(102, 204, 255));
         btnBuscar.setText("Consultar Vehiculos Rentados");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +60,7 @@ public class VehiculosRentados extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(255, 102, 102));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,11 +73,11 @@ public class VehiculosRentados extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(127, 127, 127)
                 .addComponent(btnBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVolver)
-                .addGap(60, 60, 60))
+                .addGap(165, 165, 165))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
@@ -84,11 +88,11 @@ public class VehiculosRentados extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(btnVolver))
-                .addGap(25, 25, 25))
+                .addGap(47, 47, 47))
         );
 
         pack();

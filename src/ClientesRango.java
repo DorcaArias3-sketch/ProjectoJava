@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ public class ClientesRango extends javax.swing.JFrame {
      */
     public ClientesRango() {
         initComponents();
+         getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -43,6 +45,7 @@ public class ClientesRango extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnLimpiar.setBackground(new java.awt.Color(153, 255, 153));
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +53,7 @@ public class ClientesRango extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(255, 102, 102));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,8 +63,9 @@ public class ClientesRango extends javax.swing.JFrame {
 
         jLabel1.setText("Id Cliente (Desde):");
 
-        jLabel2.setText("IdCliente(Hasta):");
+        jLabel2.setText("Id Cliente (Hasta):");
 
+        btnBuscar.setBackground(new java.awt.Color(102, 204, 255));
         btnBuscar.setText("Busca");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

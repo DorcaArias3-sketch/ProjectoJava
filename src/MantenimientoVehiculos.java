@@ -411,6 +411,7 @@ controlarBotones(true, false, false);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Matricula:");
@@ -495,6 +496,7 @@ controlarBotones(true, false, false);
         TxtPrecio.setEditable(false);
         jPanel1.add(TxtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 90, -1));
 
+        BtnAtras.setBackground(new java.awt.Color(255, 102, 102));
         BtnAtras.setText("Atras");
         BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -503,6 +505,7 @@ controlarBotones(true, false, false);
         });
         jPanel1.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
+        BtnLimpiar.setBackground(new java.awt.Color(204, 255, 153));
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -511,6 +514,7 @@ controlarBotones(true, false, false);
         });
         jPanel1.add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
+        BtnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -519,6 +523,7 @@ controlarBotones(true, false, false);
         });
         jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
+        BtnGuardar.setBackground(new java.awt.Color(255, 255, 153));
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

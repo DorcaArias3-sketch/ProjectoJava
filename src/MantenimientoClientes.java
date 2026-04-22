@@ -384,6 +384,7 @@ private boolean validarEmail(String email) {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Cedula:");
@@ -414,6 +415,7 @@ private boolean validarEmail(String email) {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
         jPanel1.add(TxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 250, -1));
 
+        BtnAtras.setBackground(new java.awt.Color(255, 102, 102));
         BtnAtras.setText("Atras");
         BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -422,6 +424,7 @@ private boolean validarEmail(String email) {
         });
         jPanel1.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
+        BtnLimpiar.setBackground(new java.awt.Color(153, 255, 153));
         BtnLimpiar.setText("Limpiar");
         BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -430,6 +433,7 @@ private boolean validarEmail(String email) {
         });
         jPanel1.add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
 
+        BtnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,6 +442,7 @@ private boolean validarEmail(String email) {
         });
         jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
+        BtnGuardar.setBackground(new java.awt.Color(255, 255, 153));
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

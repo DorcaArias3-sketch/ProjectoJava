@@ -1,3 +1,6 @@
+
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,7 @@ public class ConCliente extends javax.swing.JFrame {
      */
     public ConCliente() {
         initComponents();
+       getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -33,6 +37,7 @@ public class ConCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(102, 204, 255));
         jButton1.setText("Todos los clientes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,6 +45,7 @@ public class ConCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 204, 255));
         jButton2.setText("Clientes por Id");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +53,7 @@ public class ConCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(102, 204, 255));
         jButton3.setText("Clientes por rango de Id");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +61,7 @@ public class ConCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(255, 102, 102));
         jButton4.setText("Volver");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,30 +74,27 @@ public class ConCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jButton4)))
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton2)
+                        .addComponent(jButton1)
+                        .addComponent(jButton3)))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(59, 59, 59)
                 .addComponent(jButton1)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(jButton2)
-                .addGap(28, 28, 28)
+                .addGap(32, 32, 32)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
 
         pack();

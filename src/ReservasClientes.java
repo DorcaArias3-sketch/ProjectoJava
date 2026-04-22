@@ -9,6 +9,7 @@
  * @author DELL
  */
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.FocusAdapter;
@@ -32,7 +33,7 @@ public class ReservasClientes extends javax.swing.JFrame {
     private final SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 
     public ReservasClientes() {
-        
+        getContentPane().setBackground(Color.WHITE);
         initComponents();
         formatoFecha.setLenient(false);
         estadoInicial();

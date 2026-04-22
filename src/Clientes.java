@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 /**
  *
  * @author DELL
@@ -20,6 +21,7 @@ public class Clientes extends javax.swing.JFrame {
      */
     public Clientes() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -39,6 +41,7 @@ public class Clientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +61,7 @@ public class Clientes extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jScrollPane2);
 
+        btbConsultar.setBackground(new java.awt.Color(153, 204, 255));
         btbConsultar.setText("Consultar Clientes");
         btbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

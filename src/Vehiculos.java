@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ public class Vehiculos extends javax.swing.JFrame {
      */
     public Vehiculos() {
         initComponents();
+         getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -50,6 +52,7 @@ public class Vehiculos extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jScrollPane2);
 
+        jButton1.setBackground(new java.awt.Color(102, 204, 255));
         jButton1.setText("Consultar Vehiculos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +60,7 @@ public class Vehiculos extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +77,9 @@ public class Vehiculos extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 712, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(149, 149, 149)
                 .addComponent(jButton1)
-                .addGap(221, 221, 221)
+                .addGap(185, 185, 185)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

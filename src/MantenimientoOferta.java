@@ -407,6 +407,7 @@ if (precioOferta < precioMinimoPermitido) {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -441,6 +442,7 @@ if (precioOferta < precioMinimoPermitido) {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 274, -1, -1));
         jPanel1.add(TxtPrecio_Oferta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 271, 71, -1));
 
+        BtnAtras.setBackground(new java.awt.Color(255, 102, 102));
         BtnAtras.setText("Atras");
         BtnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -449,6 +451,7 @@ if (precioOferta < precioMinimoPermitido) {
         });
         jPanel1.add(BtnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 334, -1, -1));
 
+        BtnBuscar.setBackground(new java.awt.Color(153, 204, 255));
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,6 +460,7 @@ if (precioOferta < precioMinimoPermitido) {
         });
         jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 334, -1, -1));
 
+        BtnGuardar.setBackground(new java.awt.Color(255, 255, 153));
         BtnGuardar.setText("Guardar");
         BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

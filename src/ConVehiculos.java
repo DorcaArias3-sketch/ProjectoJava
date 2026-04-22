@@ -1,3 +1,6 @@
+
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +18,7 @@ public class ConVehiculos extends javax.swing.JFrame {
      */
     public ConVehiculos() {
         initComponents();
+         getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -36,6 +40,7 @@ public class ConVehiculos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnVehiculos.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculos.setText("Todos los Vehiculos");
         btnVehiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +48,7 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
+        btnVehiculoMatriculas.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculoMatriculas.setText("Vehiculos por Matricula");
         btnVehiculoMatriculas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +56,7 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
+        btnVehiculosDisponibles.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculosDisponibles.setText("Vehiculos Disponibles");
         btnVehiculosDisponibles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,8 +64,10 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(102, 204, 255));
         jButton4.setText("Vehiculos por Marca");
 
+        jButton5.setBackground(new java.awt.Color(102, 204, 255));
         jButton5.setText("Vehiculos por Gama ");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +75,7 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
+        btnVehiculosRentados.setBackground(new java.awt.Color(102, 204, 255));
         btnVehiculosRentados.setText("Vehiculos Rentados");
         btnVehiculosRentados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +83,7 @@ public class ConVehiculos extends javax.swing.JFrame {
             }
         });
 
+        btnVolver.setBackground(new java.awt.Color(255, 102, 102));
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,27 +96,23 @@ public class ConVehiculos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnVehiculoMatriculas)
-                                .addGap(150, 150, 150))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnVehiculosDisponibles)
-                                .addGap(162, 162, 162)))
+                            .addComponent(btnVehiculoMatriculas)
+                            .addComponent(btnVehiculos)
+                            .addComponent(btnVehiculosDisponibles))
+                        .addGap(126, 126, 126)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5)
                             .addComponent(jButton4))
                         .addGap(72, 72, 72))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVehiculos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnVehiculosRentados)
                         .addGap(82, 82, 82))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
+                .addGap(228, 228, 228)
                 .addComponent(btnVolver)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -124,9 +131,9 @@ public class ConVehiculos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVehiculosDisponibles)
                     .addComponent(jButton5))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btnVolver)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
 
         pack();
