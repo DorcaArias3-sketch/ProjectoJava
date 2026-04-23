@@ -1,3 +1,12 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,21 +35,187 @@ public class Recepcion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        DiaRecepcion = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaRecepcion = new javax.swing.JTable();
+        BtnBuscar = new javax.swing.JButton();
+        BtnLimpiar = new javax.swing.JButton();
+        BtnVolver = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Dia Recepcion:");
+
+        TablaRecepcion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID Recepcion", "Matricula", "Fecha Recepcion", "Observacion"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaRecepcion);
+
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+
+        BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
+
+        BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DiaRecepcion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnBuscar)
+                .addGap(28, 28, 28))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnVolver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnLimpiar)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DiaRecepcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(BtnBuscar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnLimpiar)
+                    .addComponent(BtnVolver))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+       Date fechaBuscada = DiaRecepcion.getDate();
+
+    if (fechaBuscada == null) {
+        JOptionPane.showMessageDialog(this, "Seleccione una fecha de recepción");
+        return;
+    }
+
+    Calendar calBuscada = Calendar.getInstance();
+    calBuscada.setTime(fechaBuscada);
+    calBuscada.set(Calendar.HOUR_OF_DAY, 0);
+    calBuscada.set(Calendar.MINUTE, 0);
+    calBuscada.set(Calendar.SECOND, 0);
+    calBuscada.set(Calendar.MILLISECOND, 0);
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID Recepcion");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Fecha Recepcion");
+    modelo.addColumn("Observacion");
+
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    boolean encontrado = false;
+
+    try (BufferedReader br = new BufferedReader(new FileReader("datos/recepcion.txt"))) {
+        String linea;
+
+        while ((linea = br.readLine()) != null) {
+            String[] datos = linea.split("\\|");
+
+            if (datos.length >= 4) {
+                Date fechaRecepcion = formato.parse(datos[2].trim());
+
+                Calendar calRecepcion = Calendar.getInstance();
+                calRecepcion.setTime(fechaRecepcion);
+                calRecepcion.set(Calendar.HOUR_OF_DAY, 0);
+                calRecepcion.set(Calendar.MINUTE, 0);
+                calRecepcion.set(Calendar.SECOND, 0);
+                calRecepcion.set(Calendar.MILLISECOND, 0);
+
+                if (calRecepcion.getTime().equals(calBuscada.getTime())) {
+                    modelo.addRow(new Object[]{
+                        datos[0].trim(),
+                        datos[1].trim(),
+                        datos[2].trim(),
+                        datos[3].trim()
+                    });
+
+                    encontrado = true;
+                }
+            }
+        }
+
+        TablaRecepcion.setModel(modelo);
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "No hay recepciones en esa fecha");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al leer el archivo recepcion.txt");
+    }
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+           DiaRecepcion.setDate(null);
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID Recepcion");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Fecha Recepcion");
+    modelo.addColumn("Observacion");
+
+    TablaRecepcion.setModel(modelo);
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +253,13 @@ public class Recepcion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.JButton BtnVolver;
+    private com.toedter.calendar.JDateChooser DiaRecepcion;
+    private javax.swing.JTable TablaRecepcion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

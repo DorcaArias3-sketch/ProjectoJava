@@ -1,3 +1,12 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,21 +35,199 @@ public class ReservasFechas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        FechaFinal = new com.toedter.calendar.JDateChooser();
+        FechaInicial = new com.toedter.calendar.JDateChooser();
+        BtnBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tablafechas = new javax.swing.JTable();
+        BtnLimpiar = new javax.swing.JButton();
+        BtnVolver = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Fecha reserva:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel2.setText("Hasta:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+
+        jLabel3.setText("Desde:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+        jPanel1.add(FechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+        jPanel1.add(FechaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 20, -1, -1));
+
+        Tablafechas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Matricula", "Cedula", "Oferta", "Fecha reserva", "Fecha salida", "Fecha entrada", "Precio Total"
+            }
+        ));
+        jScrollPane1.setViewportView(Tablafechas);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 720, 250));
+
+        BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, -1, -1));
+
+        BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+    Date fechaDesde = FechaInicial.getDate();
+    Date fechaHasta = FechaFinal.getDate();
+
+    if (fechaDesde == null || fechaHasta == null) {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar ambas fechas");
+        return;
+    }
+
+    Calendar calDesde = Calendar.getInstance();
+    calDesde.setTime(fechaDesde);
+    calDesde.set(Calendar.HOUR_OF_DAY, 0);
+    calDesde.set(Calendar.MINUTE, 0);
+    calDesde.set(Calendar.SECOND, 0);
+    calDesde.set(Calendar.MILLISECOND, 0);
+
+    Calendar calHasta = Calendar.getInstance();
+    calHasta.setTime(fechaHasta);
+    calHasta.set(Calendar.HOUR_OF_DAY, 0);
+    calHasta.set(Calendar.MINUTE, 0);
+    calHasta.set(Calendar.SECOND, 0);
+    calHasta.set(Calendar.MILLISECOND, 0);
+
+    if (calDesde.getTime().after(calHasta.getTime())) {
+        JOptionPane.showMessageDialog(this, "La fecha inicial no puede ser mayor que la fecha final");
+        return;
+    }
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Cedula");
+    modelo.addColumn("Oferta");
+    modelo.addColumn("Fecha reserva");
+    modelo.addColumn("Fecha salida");
+    modelo.addColumn("Fecha entrada");
+    modelo.addColumn("Precio Total");
+
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    boolean encontrado = false;
+
+    try (BufferedReader br = new BufferedReader(new FileReader("datos/Reservas_Clientes.txt"))) {
+        String linea;
+
+        while ((linea = br.readLine()) != null) {
+            String[] datos = linea.split("\\|");
+
+       
+       
+
+            if (datos.length >= 10) {
+                Date fechaReserva = formato.parse(datos[4].trim());
+
+                Calendar calReserva = Calendar.getInstance();
+                calReserva.setTime(fechaReserva);
+                calReserva.set(Calendar.HOUR_OF_DAY, 0);
+                calReserva.set(Calendar.MINUTE, 0);
+                calReserva.set(Calendar.SECOND, 0);
+                calReserva.set(Calendar.MILLISECOND, 0);
+
+                if (!calReserva.getTime().before(calDesde.getTime()) &&
+                    !calReserva.getTime().after(calHasta.getTime())) {
+
+                    modelo.addRow(new Object[]{
+                        datos[0].trim(),
+                        datos[1].trim(),
+                        datos[2].trim(),
+                        datos[3].trim(),
+                        datos[4].trim(),
+                        datos[5].trim(),
+                        datos[6].trim(),
+                        datos[9].trim()
+                    });
+
+                    encontrado = true;
+                }
+            }
+        }
+
+        Tablafechas.setModel(modelo);
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "No hay reservas en ese rango de fechas");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al consultar reservas");
+    }
+
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+            FechaInicial.setDate(null);
+    FechaFinal.setDate(null);
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Cedula");
+    modelo.addColumn("Oferta");
+    modelo.addColumn("Fecha reserva");
+    modelo.addColumn("Fecha salida");
+    modelo.addColumn("Fecha entrada");
+    modelo.addColumn("Precio Total");
+
+    Tablafechas.setModel(modelo);
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +265,16 @@ public class ReservasFechas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.JButton BtnVolver;
+    private com.toedter.calendar.JDateChooser FechaFinal;
+    private com.toedter.calendar.JDateChooser FechaInicial;
+    private javax.swing.JTable Tablafechas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

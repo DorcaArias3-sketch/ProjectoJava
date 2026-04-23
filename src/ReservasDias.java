@@ -1,3 +1,12 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,21 +35,160 @@ public class ReservasDias extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        DiaReserva = new com.toedter.calendar.JDateChooser();
+        BtnBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaDias = new javax.swing.JTable();
+        BtnLimpiar = new javax.swing.JButton();
+        BtnVolver = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Dia reserva:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(DiaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, -1, -1));
+
+        TablaDias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Matricula", "Cedula", "Oferta", "Fecha reserva", "Fecha salida", "Fecha entrada", "Precio Total"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaDias);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 710, 240));
+
+        BtnLimpiar.setText("Limpiar");
+        BtnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
+
+        BtnVolver.setText("Volver");
+        BtnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+     Date fechaBuscada = DiaReserva.getDate();
+
+    if (fechaBuscada == null) {
+        JOptionPane.showMessageDialog(this, "Seleccione una fecha de reserva");
+        return;
+    }
+
+    Calendar calBuscada = Calendar.getInstance();
+    calBuscada.setTime(fechaBuscada);
+    calBuscada.set(Calendar.HOUR_OF_DAY, 0);
+    calBuscada.set(Calendar.MINUTE, 0);
+    calBuscada.set(Calendar.SECOND, 0);
+    calBuscada.set(Calendar.MILLISECOND, 0);
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Cedula");
+    modelo.addColumn("Oferta");
+    modelo.addColumn("Fecha reserva");
+    modelo.addColumn("Fecha salida");
+    modelo.addColumn("Fecha entrada");
+    modelo.addColumn("Precio Total");
+
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    boolean encontrado = false;
+
+    try (BufferedReader br = new BufferedReader(new FileReader("datos/Reservas_Clientes.txt"))) {
+        String linea;
+
+        while ((linea = br.readLine()) != null) {
+            String[] datos = linea.split("\\|");
+
+
+            if (datos.length >= 10) {
+                Date fechaReserva = formato.parse(datos[4].trim());
+
+                Calendar calReserva = Calendar.getInstance();
+                calReserva.setTime(fechaReserva);
+                calReserva.set(Calendar.HOUR_OF_DAY, 0);
+                calReserva.set(Calendar.MINUTE, 0);
+                calReserva.set(Calendar.SECOND, 0);
+                calReserva.set(Calendar.MILLISECOND, 0);
+
+                if (calReserva.getTime().equals(calBuscada.getTime())) {
+                    modelo.addRow(new Object[]{
+                        datos[0].trim(),
+                        datos[1].trim(),
+                        datos[2].trim(),
+                        datos[3].trim(),
+                        datos[4].trim(),
+                        datos[5].trim(),
+                        datos[6].trim(),
+                        datos[9].trim()
+                    });
+
+                    encontrado = true;
+                }
+            }
+        }
+
+        TablaDias.setModel(modelo);
+
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "No hay reservas en esa fecha");
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al consultar reservas por fecha");
+    }
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
+           DiaReserva.setDate(null);
+
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("ID");
+    modelo.addColumn("Matricula");
+    modelo.addColumn("Cedula");
+    modelo.addColumn("Oferta");
+    modelo.addColumn("Fecha reserva");
+    modelo.addColumn("Fecha salida");
+    modelo.addColumn("Fecha entrada");
+    modelo.addColumn("Precio Total");
+
+    TablaDias.setModel(modelo);
+    }//GEN-LAST:event_BtnLimpiarActionPerformed
+
+    private void BtnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_BtnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +226,13 @@ public class ReservasDias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnLimpiar;
+    private javax.swing.JButton BtnVolver;
+    private com.toedter.calendar.JDateChooser DiaReserva;
+    private javax.swing.JTable TablaDias;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
